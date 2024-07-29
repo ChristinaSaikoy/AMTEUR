@@ -2,21 +2,21 @@
 
 int main()
 {
-  int max,min,num,a;
-  float sum=0,ans;
-  scanf("%d",&num);
-  scanf("%d",&a);
-  max = min = a;
-  sum = sum + max;
-  for (int i=1;i<num;i++)
+  int max,min,num,a;    //初始化最大值，最小值，人数，存放数据的a
+  float sum=0,ans;    //初始化所有值的和，以及最后答案
+  scanf("%d",&num);    //输入人数
+  scanf("%d",&a);    //输入第一个数据
+  max = min = a;    //给max和min初始值便于比较
+  sum = sum + max;    //给和一个初始值
+  for (int i=1;i<num;i++)  //由于已经输入了一个值，故使用<
   {
-    scanf("%d",&a);
-    sum = sum + a;
-    if (max<a) max=a;
-    if (min>a) min=a;
+    scanf("%d",&a);    //依次输入a
+    sum = sum + a;    //求和
+    if (max<a) max=a;    //找最大值
+    if (min>a) min=a;    //找最小值
   }
-  sum = sum - max - min;
+  sum = sum - max - min;    //和减去最大最小值
   ans = sum/(num-2);
-  printf("%.2f",ans);
+  printf("%.2f",ans);    //完成
   return 0;
 } 
