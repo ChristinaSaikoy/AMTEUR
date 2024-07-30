@@ -1,0 +1,262 @@
+#include <stdio.h>
+#include <math.h>
+
+int main()
+{
+  int a,b,a1,b1,x,key,a2,b2;    //a1为a的位数，b1为b的位数。a2,b2用于计算位数
+  key=0;    //跳出循环所用key
+  scanf("%d %d",&a,&b);
+  a2=a; b2=b;
+  for (;a2>0;a1++) a2/=10;    //计算a的位数
+  for (;b2>0;b1++) b2/=10;    //计算b的位数
+  for (int i=a1;i<=b1;i++)    //从a的位数开始产生回文数
+  {
+      if (i==1)
+      {
+        if (a<=5 && b>=5) printf("5\n");
+        if (a<=7 && b>=7) printf("7\n");
+      }   //一位数时就两个个数，直接条件语句秒
+
+
+      if (i==2 && a<=11  && b>=11) printf("11\n");   //同理两位数秒
+
+
+      
+      if (i==3)   //当为三位数时
+      {
+        for (int d1=1,check=1;d1<=9;d1+=2)    //第一第三位数字,且质数末尾应为奇数,并利用check变量检测是否为质数
+        {
+          for (int d2=0;d2<=9;d2++)   //第二位数字
+          {
+            check=1;    //记得恢复初始值，刚刚吃了大亏
+            x=100*d1+10*d2+d1;
+            if (x<a) continue;
+            if (x>b)
+            {
+              key=1;    //中途数字大于b，继续循环肯定更大，直接两个跳出
+              break;
+            }
+            for (int o=3;o<=sqrt (x);o++)
+            {
+              if (x%o == 0)
+              {
+                check=0;    //若能被整除则不是质数，key转为0，跳出循环
+                break;
+              }
+            }
+            if (check == 1) printf("%d\n",x);
+          }
+          if (key==1) break;
+        }
+      }
+      if (key == 1) break;
+
+
+      if (i==4)   //当为三位数时
+      {
+        for (int d1=1,check=1;d1<=9;d1+=2)    //第一第四位数字,且质数末尾应为奇数,并利用check变量检测是否为质数
+        {
+          for (int d2=0;d2<=9;d2++)   //第二第三位数字
+          {
+            check=1;    //记得恢复初始值，刚刚吃了大亏
+            x=1000*d1+100*d2+10*d2+d1;
+            if (x<a) continue;
+            if (x>b)
+            {
+              key=1;    //中途数字大于b，继续循环肯定更大，直接两个跳出
+              break;
+            }
+            for (int o=3;o<=sqrt (x);o++)
+            {
+              if (x%o == 0)
+              {
+                check=0;    //若能被整除则不是质数，key转为0，跳出循环
+                break;
+              }
+            }
+            if (check == 1) printf("%d\n",x);
+          }
+          if (key==1) break;
+        }
+      }
+      if (key == 1) break;
+
+
+      if (i==5)   //当为三位数时
+      {
+        for (int d1=1,check=1;d1<=9;d1+=2)    //第一第五位数字,且质数末尾应为奇数,并利用check变量检测是否为质数
+        {
+          for (int d2=0;d2<=9;d2++)   //第二第四位数字
+          {
+            for (int d3=0;d3<=9;d3++)   //第三位数字
+            {
+              check=1;    //记得恢复初始值，刚刚吃了大亏
+              x=10001*d1+1010*d2+100*d3;
+              if (x<a) continue;
+              if (x>b)
+              {
+                key=1;    //中途数字大于b，继续循环肯定更大，直接两个跳出
+                break;
+              }
+              for (int o=3;o<=sqrt (x);o++)
+              {
+                if (x%o == 0)
+                {
+                  check=0;    //若能被整除则不是质数，key转为0，跳出循环
+                  break;
+                }
+              }
+              if (check == 1) printf("%d\n",x);
+            }
+          }
+          if (key==1) break;
+        }
+      }
+      if (key == 1) break;
+
+
+      if (i==6)   //当为六位数时
+      {
+        for (int d1=1,check=1;d1<=9;d1+=2)    //第一第六位数字,且质数末尾应为奇数,并利用check变量检测是否为质数
+        {
+          for (int d2=0;d2<=9;d2++)   //第二第五位数字
+          {
+            for (int d3=0;d3<=9;d3++)   //第三第四位数字
+            {
+              check=1;    //记得恢复初始值，刚刚吃了大亏
+              x=100001*d1+10010*d2+1100*d3;
+              if (x<a) continue;
+              if (x>b)
+              {
+                key=1;    //中途数字大于b，继续循环肯定更大，直接两个跳出
+                break;
+              }
+              for (int o=3;o<=sqrt (x);o++)
+              {
+                if (x%o == 0)
+                {
+                  check=0;    //若能被整除则不是质数，key转为0，跳出循环
+                  break;
+                }
+              }
+              if (check == 1) printf("%d\n",x);
+            }
+          }
+          if (key==1) break;
+        }
+      }
+      if (key == 1) break;
+
+
+      if (i==7)   //当为七位数时
+      {
+        for (int d1=1,check=1;d1<=9;d1+=2)    //第一第七位数字,且质数末尾应为奇数,并利用check变量检测是否为质数
+        {
+          for (int d2=0;d2<=9;d2++)   //第二第六位数字
+          {
+            for (int d3=0;d3<=9;d3++)   //第三第五位数字
+            {
+              for (int d4=0;d4<=9;d4++)   //第四位数字
+              {
+                check=1;    //记得恢复初始值，刚刚吃了大亏
+                x=1000001*d1+100010*d2+10100*d3+1000*d4;
+                if (x<a) continue;
+                if (x>b)
+                {
+                  key=1;    //中途数字大于b，继续循环肯定更大，直接两个跳出
+                  break;
+                }
+                for (int o=3;o<=sqrt (x);o++)
+                {
+                  if (x%o == 0)
+                  {
+                    check=0;    //若能被整除则不是质数，key转为0，跳出循环
+                    break;
+                }
+              }
+              if (check == 1) printf("%d\n",x);
+              }
+            }
+          }
+          if (key==1) break;
+        }
+      }
+      if (key == 1) break;
+
+
+       if (i==8)   //当为八位数时
+      {
+        for (int d1=1,check=1;d1<=9;d1+=2)    //第一第八位数字,且质数末尾应为奇数,并利用check变量检测是否为质数
+        {
+          for (int d2=0;d2<=9;d2++)   //第二第七位数字
+          {
+            for (int d3=0;d3<=9;d3++)   //第三第六位数字
+            {
+              for (int d4=0;d4<=9;d4++)   //第四第五位数字
+              {
+                check=1;    //记得恢复初始值，刚刚吃了大亏
+                x=10000001*d1+1000010*d2+100100*d3+11000*d4;
+                if (x<a) continue;
+                if (x>b)
+                {
+                  key=1;    //中途数字大于b，继续循环肯定更大，直接两个跳出
+                  break;
+                }
+                for (int o=3;o<=sqrt (x);o++)
+                {
+                  if (x%o == 0)
+                  {
+                    check=0;    //若能被整除则不是质数，key转为0，跳出循环
+                    break;
+                }
+              }
+              if (check == 1) printf("%d\n",x);
+              }
+            }
+          }
+          if (key==1) break;
+        }
+      }
+      if (key == 1) break;
+
+
+       if (i==9)   //当为八位数时
+      {
+        for (int d1=1,check=1;d1<=9;d1+=2)    //第一第九位数字,且质数末尾应为奇数,并利用check变量检测是否为质数
+        {
+          for (int d2=0;d2<=9;d2++)   //第二第八位数字
+          {
+            for (int d3=0;d3<=9;d3++)   //第三第七位数字
+            {
+              for (int d4=0;d4<=9;d4++)   //第四第六位数字
+              {
+                for (int d5=0;d5<9;d5++)
+                {
+                  check=1;    //记得恢复初始值，刚刚吃了大亏
+                  x=100000001*d1+10000010*d2+1000100*d3+101000*d4+10000*d5;
+                if (x<a) continue;
+                if (x>b)
+                {
+                  key=1;    //中途数字大于b，继续循环肯定更大，直接两个跳出
+                  break;
+                }
+                for (int o=3;o<=sqrt (x);o++)
+                {
+                  if (x%o == 0)
+                  {
+                    check=0;    //若能被整除则不是质数，key转为0，跳出循环
+                    break;
+                  }
+                }
+                if (check == 1) printf("%d\n",x);
+                }
+              }
+            }
+          }
+          if (key==1) break;
+        }
+      }
+      if (key == 1) break;
+  }
+  return 0;
+} 
