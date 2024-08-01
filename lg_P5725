@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <math.h>
+
+int main()
+{
+  int num,x,a;    //设置x来表示当前数字,num表示行和列
+  x=1;    //x从1开始逐渐增大
+  scanf("%d",&num);
+  for (int i=1;i<=num;i++)
+  {
+    for (int o=1;o<=num;o++)
+    {
+      if (x<=9) printf("0%d",x);    //数字小于9还要在前面输入0
+      else printf("%d",x);
+      x++;
+    }
+    printf("\n");
+  }   //打出正方形
+  
+  printf("\n");   //中间有个空行，被坑了
+
+  x=1;    //初始化x
+  a=num-1;    //利用a输入空格
+  for (int i=1;i<=num;i++)
+  {
+    for (int o=1;o<=a;o++)    //输入空格
+    {
+      printf("  ");
+    }
+    for (int o=1;o<=num-a;o++)    //输入数字
+    {
+      if (x<=9) printf("0%d",x);    //数字小于9还要在前面输入0
+      else printf("%d",x);
+      x++;
+    }
+    a--;
+    printf("\n");
+  }
+  return 0;
+} 
