@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <math.h>
+
+int main()
+{
+  int d;   // 用于储存12个月的预算
+  int sum=0;    //初始化总金额
+  int mum=0;    //初始化妈妈存储的钱
+  int i=1;    //计算月份
+  int key=1;    //检验钱是否够
+  for (;i<=12;i++)   //循环十二个月
+  {
+    sum+=300;
+    scanf("%d",&d);
+    if (sum<d)
+    {
+        key=0;
+        break;
+    }
+    sum-=d;
+    if (sum>=100)
+    {
+      for (;;)
+      {
+        sum-=100;
+        mum+=100;   //储存100进去
+        if (sum<100) break;   //低于一百跳出循环
+      }
+    }
+  }
+  if (key == 0) printf("-%d",i);
+  else
+  {
+    sum=sum+1.2*mum;    //计算总金额
+    printf("%d",sum);
+  }
+  return 0;
+} 
