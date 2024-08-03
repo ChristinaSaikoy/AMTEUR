@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <math.h>
+
+int main()
+{
+  int a[100],num;   //运用数组储存数据
+  int x=0;    //便于储存左侧有多少只更小
+  scanf("%d",&num);
+  for (int i=1;i<=num;i++)
+  {
+    scanf("%d",&a[i]);
+  }
+  for (int i=1;i<=num;i++)    //目前的序号
+  {
+    for (int o=1;o<=i;o++)    //从左开始一次比较
+    {
+        if (a[o]<a[i]) x++;   //比自己小就加一
+    }
+  printf("%d ",x);
+  x=0;    //记住清零
+  }
+  return 0;
+} 
